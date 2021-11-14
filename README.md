@@ -6,7 +6,7 @@ Read notes for CS: APP, which is accomplished by my friends and me.
 
 
 
-《深入理解计算机系统》（CS：APP ) 阅读笔记及打卡记录。
+《深入理解计算机系统》（CS：APP ) 阅读笔记以及打卡记录。
 
 
 
