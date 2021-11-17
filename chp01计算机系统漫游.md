@@ -33,7 +33,7 @@ reference：CS：APPv3 P7
 
 **3、存储层次** 
 
-![存储层次](img\fig1_9.png)
+![存储层次](img/fig1_9.png)
 
 
 
