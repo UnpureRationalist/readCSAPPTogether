@@ -18,7 +18,7 @@ typedef unsigned char *byte_pointer; // 字节指针
 // 将start所指向的地址空间的，长度为len的内容，以字节形式输出 
 void show_bytes(byte_pointer start, size_t len) {
 	for(size_t i = 0; i < len; i++)
-		printf("%.2x ", start[i]); // .2x表示整数必须用至少两个数字的十六进制显示 
+		printf("%.2x ", start[i]); // .2x 表示整数必须用至少两个数字的十六进制显示 
 	printf("\n");
 }
 
@@ -42,13 +42,13 @@ int main(){
 	show_bytes((byte_pointer) &b, sizeof(float));
 	printf("a = %f, b = %d\n\n", a, b);
 	
-	float max = FLT_MAX, neg1 = -1; // C++支持IEEE754浮点标准 
+	float max = FLT_MAX, neg1 = -1; // C++ 支持 IEEE754 浮点标准 
 	show_bytes((byte_pointer) &max, sizeof(float)); 
 	show_bytes((byte_pointer) &neg1, sizeof(float)); 
 	printf("max = %f, -1 = %f\n\n", max, neg1);
 	
 	
-	int undefined = (int)1e10; // 产生结果为INT_MAX 
+	int undefined = (int)1e10; // 产生结果为 INT_MAX 
 	show_bytes((byte_pointer) &undefined, sizeof(int)); 
 	printf("undefined = %d", undefined); 
 	return 0;
@@ -101,19 +101,19 @@ void inplace_swap(int *x, int *y)
 
 - 几种常见的数值：
 
-  2<sup>w</sup>：取模时用到，保留w位有效值
+  2<sup>w</sup>：取模时用到，保留 w 位有效值
 
-  2<sup>w</sup> - 1：w位变量能表示的最大值
+  2<sup>w</sup> - 1：w 位变量能表示的最大值
 
-  2<sup>w-1</sup>：第w位的权重
+  2<sup>w-1</sup>：第 w 位的权重
 
-  2<sup>w-1</sup> - 1：w位有符号数能表示的最大值
+  2<sup>w-1</sup> - 1：w 位有符号数能表示的最大值
 
 - 有符号与无符号整数转换时，保持位值不变。但浮点数和整数转换时，会根据变量的存储规则改变位值。请参见`字节指针.cpp`
 
-- 将short转换成unsigned时，先进行位扩展，再进行符号转换。unsigned a = short(-1)，得到结果为2<sup>32</sup> - 1。
+- 将 short 转换成 unsigned 时，先进行位扩展，再进行符号转换。unsigned a = short(-1)，得到结果为2<sup>32</sup> - 1。
 
-- C语法规则对于有符号和无符号变量运算时，默认转换成无符号。有符号到无符号的隐式转换常常导致程序错误。
+- C 语法规则对于有符号和无符号变量运算时，默认转换成无符号。有符号到无符号的隐式转换常常导致程序错误。
 
 
 
@@ -186,7 +186,7 @@ void inplace_swap(int *x, int *y)
 
 ![image](https://user-images.githubusercontent.com/56211928/141666234-c5f8f877-7154-41fd-a311-962ca0825b3c.png)
 
-      可以这样理解：对于两个正数x,y相加，最高位的权重本应为2^(w-1)，如果发生溢出，最高位权重变成-2^(w-1)，故实际结果为x + y - 2^w，负数同理
+      可以这样理解：对于两个正数 x, y 相加，最高位的权重本应为 2^(w-1)，如果发生溢出，最高位权重变成 -2^(w-1)，故实际结果为 x + y - 2^w，负数同理
 
 ![image](https://user-images.githubusercontent.com/56211928/141666298-6e8bb229-e57a-4f1a-ba59-3635a0c1a010.png)
 
@@ -194,11 +194,11 @@ void inplace_swap(int *x, int *y)
 
       1、补码取反加一。
       2、固定最右侧的1，其左侧所有位取反。
-        eg：补码11001000 -> 源码00111000
+        eg：补码 11001000 -> 源码 00111000
 
 - 对于整数乘法，C语言编译器可以利用移位、加法、减法的组合来消除乘以常数的情况。
 
-- 对于整数除法（除以2的幂），直接移位导致向下舍入。可以利用(x + (1 << k)) >> k得到向上舍入（对于负数应该向上舍入）。
+- 对于整数除法（除以 2 的幂），直接移位导致向下舍入。可以利用 (x + (1 << k)) >> k 得到向上舍入（对于负数应该向上舍入）。
 
 
 
@@ -214,13 +214,13 @@ void inplace_swap(int *x, int *y)
 
 - 规格化值：
 
-      exp的位既不全0也不全1
-      阶码E = exp - Bias （单精度位255，双精度为2047）。
+      exp的位既不全 0 也不全 1
+      阶码E = exp - Bias （单精度位 255，双精度为 2047）。
       尾数M = 1 + frac
 
-- 非规格化值：提供一种0的表示方法，还可以表示一些非常接近0.0的数
+- 非规格化值：提供一种 0 的表示方法，还可以表示一些非常接近 0.0 的数
 
-      exp全为0
+      exp 全为 0
       阶码E = 1 - Bias （如此定义可实现最小规格化数和最大非规格化数的平滑过渡）
       尾数M = frac
 
@@ -228,22 +228,22 @@ void inplace_swap(int *x, int *y)
 
       exp全1
 
-- 1位符号，4位阶码（Bias = 7），3位尾数所表示的浮点值如下图：      
+- 1 位符号，4 位阶码（Bias = 7），3 位尾数所表示的浮点值如下图：      
   ![image](https://user-images.githubusercontent.com/56211928/141667138-73d8c8de-1d3b-4286-b664-85bf5ca4add1.png)
 
 - 舍入
 
-      向偶数舍入：确定两个可能结果**中间值**的舍入效果，使得最低有效数字是偶数（二进制最低有效位为0）。避免计算平均值代来的系统误差。
-          eg（舍入到1/4）：10.00110 -> 10.01    10.11100 -> 11.00    10.10100 -> 10.10
+      向偶数舍入：确定两个可能结果**中间值**的舍入效果，使得最低有效数字是偶数（二进制最低有效位为 0）。避免计算平均值代来的系统误差。
+          eg（舍入到 1 / 4）：10.00110 -> 10.01    10.11100 -> 11.00    10.10100 -> 10.10
       向零舍入
       向下舍入
       向上舍入
 
 - 浮点运算的结合性：浮点加法和乘法都不满足结合性
 
-- C语言中的浮点数：符合IEEE754标准，请参见`字节指针.cpp`
+- C 语言中的浮点数：符合 IEEE754 标准，请参见`字节指针.cpp`
 
-      对于float值：
+      对于 float 值：
       FLOAT_MAX -> 7f 7f ff ff
       -1 -> bf 80 00 00
 
