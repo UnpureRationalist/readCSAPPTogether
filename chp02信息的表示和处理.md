@@ -25,7 +25,7 @@ void show_bytes(byte_pointer start, size_t len) {
 int main(){
 	
 	short m = -1;
-	unsigned short n = m; // 整形间的类型转换，不改变原变量的位置 
+	unsigned short n = m; // 整形间的类型转换，不改变原变量的位值 
 	show_bytes((byte_pointer) &m, sizeof(short)); 
 	show_bytes((byte_pointer) &n, sizeof(unsigned short));
 	printf("m = %d, n = %d\n\n", m, n); 
