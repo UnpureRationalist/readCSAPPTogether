@@ -1,20 +1,20 @@
 # readCSAPPTogether
 
-**Description**
+## 仓库说明
 
-Read notes for CS: APP, which is accomplished by my friends and me.
-
-
+Read notes for CS: APP.
 
 《深入理解计算机系统》（CS：APP ) 阅读笔记及打卡记录。
 
-本仓库由 [@Alpha-kc](https://github.com/Alpha-kc) 、 [@fjj-088](https://github.com/fjj-088) 与 [@arcsin2](https://github.com/UnpureRationalist) 共同完成。
 
 
+## 参考资料
 
-**分支说明** 
+中文版勘误：http://yiligong.org/csapp3e
 
-main 分支为阅读笔记整理合并版。其余分支为阅读者各自的阅读笔记及打卡记录。
+英文官网：http://csapp.cs.cmu.edu/3e/home.html
+
+重点解读：https://fengmuzi2003.gitbook.io/csapp3e
 
 
 
@@ -36,3 +36,8 @@ main 分支为阅读笔记整理合并版。其余分支为阅读者各自的阅
 |                                        |             | 2021.12.27 ~ 2022.01.02 |
 |                                        |             | 2022.01.03 ~ 2022.01.09 |
 
+
+
+**分支说明** 
+
+main 分支为阅读笔记整理合并版。其余分支为阅读者各自的阅读笔记及打卡记录。
